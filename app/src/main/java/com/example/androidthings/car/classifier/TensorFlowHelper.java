@@ -13,15 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androidthings.imageclassifier.classifier;
+package com.example.androidthings.car.classifier;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.util.Log;
-
-import com.example.androidthings.imageclassifier.classifier.Recognition;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

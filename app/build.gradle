@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.google.android.things.contrib:driver-button:0.6'
     implementation 'org.tensorflow:tensorflow-lite:0.1.1'
     compileOnly 'com.google.android.things:androidthings:0.7-devpreview'
+    compile project(':Adrptb8c')
 }

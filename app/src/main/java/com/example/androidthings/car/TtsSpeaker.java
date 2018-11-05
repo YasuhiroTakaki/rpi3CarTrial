@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androidthings.imageclassifier;
+package com.example.androidthings.car;
 
 import android.speech.tts.TextToSpeech;
 
-import com.example.androidthings.imageclassifier.classifier.Recognition;
+import com.example.androidthings.car.classifier.Recognition;
 
 import java.util.ArrayList;
 import java.util.Collection;

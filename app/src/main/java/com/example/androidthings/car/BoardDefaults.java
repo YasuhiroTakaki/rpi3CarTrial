@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.androidthings.imageclassifier;
+package com.example.androidthings.car;
 
 import android.os.Build;
 
@@ -51,6 +51,19 @@ public class BoardDefaults {
                 return "GPIO4_IO20";
             case DEVICE_IMX7D_PICO:
                 return "GPIO6_IO14";
+            default:
+                throw new IllegalStateException("Unknown Build.DEVICE " + Build.DEVICE);
+        }
+    }
+
+    public static String getI2CPort() {
+        switch (Build.DEVICE) {
+            case DEVICE_RPI3:
+                return "I2C1";
+            case DEVICE_IMX6UL_PICO:
+                return "I2C2";
+            case DEVICE_IMX7D_PICO:
+                return "I2C1";
             default:
                 throw new IllegalStateException("Unknown Build.DEVICE " + Build.DEVICE);
         }

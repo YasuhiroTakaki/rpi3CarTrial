@@ -22,7 +22,7 @@
     android:clickable="true"
     android:focusable="false"
     android:onClick="onShutterClick"
-    tools:context="com.example.androidthings.imageclassifier.ImageClassifierActivity">
+    tools:context="com.example.androidthings.car.ImageClassifierActivity">
 
     <ImageView
         android:id="@+id/imageView"

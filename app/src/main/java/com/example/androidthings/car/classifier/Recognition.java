@@ -1,4 +1,4 @@
-package com.example.androidthings.imageclassifier.classifier;
+package com.example.androidthings.car.classifier;
 
 /**
  * An immutable result returned by a Classifier describing what was recognized.

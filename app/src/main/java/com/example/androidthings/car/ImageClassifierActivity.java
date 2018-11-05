@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androidthings.imageclassifier;
+package com.example.androidthings.car;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.Image;
@@ -27,7 +26,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -35,19 +33,17 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.androidthings.imageclassifier.classifier.Recognition;
-import com.example.androidthings.imageclassifier.classifier.TensorFlowImageClassifier;
+import com.example.androidthings.car.classifier.Recognition;
+import com.example.androidthings.car.classifier.TensorFlowImageClassifier;
+import com.google.android.things.contrib.driver.adrptb8c.Adrptb8c;
 import com.google.android.things.contrib.driver.button.Button;
 import com.google.android.things.contrib.driver.button.ButtonInputDriver;
 import com.google.android.things.pio.Gpio;
 import com.google.android.things.pio.PeripheralManager;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -60,7 +56,7 @@ public class ImageClassifierActivity extends Activity implements ImageReader.OnI
     private static final int TF_INPUT_IMAGE_HEIGHT = 224;
 
     /* Key code used by GPIO button to trigger image capture */
-    private static final int SHUTTER_KEYCODE = KeyEvent.KEYCODE_CAMERA;
+    private static final int SHUTTER_KEYCODE = KeyEvent.KEYCODE_0;
 
     private ImagePreprocessor mImagePreprocessor;
     private TextToSpeech mTtsEngine;
@@ -88,6 +84,11 @@ public class ImageClassifierActivity extends Activity implements ImageReader.OnI
         mResultText = findViewById(R.id.resultText);
 
         init();
+        try {
+            Adrptb8c device = new Adrptb8c("I2C1");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void init() {
